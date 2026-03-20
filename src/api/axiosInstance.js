@@ -20,6 +20,14 @@ const processQueue = (error) => {
   refreshQueue = []
 }
 
+axiosInstance.interceptors.request.use((config) => {
+  const token = localStorage.getItem('accessToken')
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
+
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -39,11 +47,12 @@ axiosInstance.interceptors.response.use(
       isRefreshing = true
 
       try {
-        await axios.post(
+        const { data } = await axios.post(        
           `${import.meta.env.VITE_API_URL}/auth/refresh`,
           {},
           { withCredentials: true },
         )
+        localStorage.setItem('accessToken', data.accessToken) 
         processQueue(null)
         return axiosInstance(originalRequest)
       } catch (refreshError) {

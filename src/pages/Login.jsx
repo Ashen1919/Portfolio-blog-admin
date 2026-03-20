@@ -24,10 +24,11 @@ export default function Login() {
     setErrors({})
     setLoading(true)
     try {
-      await axiosInstance.post('/auth/login', {
+      const { data } = await axiosInstance.post('/auth/login', {
         email: form.email.trim(),
         password: form.password,
       })
+      localStorage.setItem('accessToken', data.accessToken)
       toast.success('Welcome back!')
       navigate('/', { replace: true })
     } catch (err) {
