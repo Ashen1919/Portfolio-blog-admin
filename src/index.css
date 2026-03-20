@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Custom Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ─── Sidebar Scrollbar (dark) ──────────────────────── */
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #2d3248;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #3d4263;
+}
+
+/* ─── Prose / Rich Text Render ──────────────────────── */
+.prose-content {
+  line-height: 1.75;
+  color: #1e293b;
+  font-size: 0.9375rem;
+}
+.prose-content h1,
+.prose-content h2,
+.prose-content h3,
+.prose-content h4 {
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #0f172a;
+  line-height: 1.3;
+}
+.prose-content h1 { font-size: 1.6rem; }
+.prose-content h2 { font-size: 1.3rem; }
+.prose-content h3 { font-size: 1.1rem; }
+.prose-content p {
+  margin-bottom: 1em;
+}
+.prose-content ul,
+.prose-content ol {
+  padding-left: 1.4em;
+  margin-bottom: 1em;
+}
+.prose-content li {
+  margin-bottom: 0.3em;
+}
+.prose-content a {
+  color: #6366f1;
+  text-decoration: underline;
+}
+.prose-content blockquote {
+  border-left: 3px solid #6366f1;
+  padding-left: 1rem;
+  color: #64748b;
+  font-style: italic;
+  margin: 1rem 0;
+}
+.prose-content code {
+  background: #f1f5f9;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: 'Fira Mono', monospace;
+}
+.prose-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  margin-bottom: 1em;
+}
+.prose-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+.prose-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1em 0;
+}
+.prose-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  font-size: 0.875rem;
+}
+.prose-content th,
+.prose-content td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.prose-content th {
+  background: #f8fafc;
+  font-weight: 600;
+}
+
+/* ─── Utility: Fade-in overlay for modals ───────────── */
+.modal-overlay {
+  animation: overlayFadeIn 0.15s ease-out;
+}
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ─── Stat Card gradient accents ───────────────────── */
+.card-glow-indigo { box-shadow: 0 0 0 1px rgba(99,102,241,0.15), 0 4px 24px rgba(99,102,241,0.06); }
+.card-glow-violet { box-shadow: 0 0 0 1px rgba(139,92,246,0.15), 0 4px 24px rgba(139,92,246,0.06); }
+.card-glow-sky    { box-shadow: 0 0 0 1px rgba(14,165,233,0.15), 0 4px 24px rgba(14,165,233,0.06); }
+.card-glow-emerald{ box-shadow: 0 0 0 1px rgba(16,185,129,0.15), 0 4px 24px rgba(16,185,129,0.06); }
