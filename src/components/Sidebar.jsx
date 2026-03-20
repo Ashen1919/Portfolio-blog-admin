@@ -32,7 +32,7 @@ export default function Sidebar() {
     try {
       await axiosInstance.post('/auth/logout')
       toast.success('Goodbye! See you soon 👋')
-      localStorage.removeItem('accessToken')
+      localStorage.removeItem('token')
       navigate('/login')
     } catch {
       toast.error('Logout failed. Please try again.')

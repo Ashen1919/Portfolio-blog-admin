@@ -28,7 +28,7 @@ export default function Login() {
         email: form.email.trim(),
         password: form.password,
       })
-      localStorage.setItem('accessToken', data.accessToken)
+      localStorage.setItem('token', data.token)
       toast.success('Welcome back!')
       navigate('/', { replace: true })
     } catch (err) {

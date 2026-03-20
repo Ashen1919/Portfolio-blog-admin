@@ -21,7 +21,7 @@ const processQueue = (error) => {
 }
 
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem('accessToken')
+  const token = localStorage.getItem('token')
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
@@ -52,7 +52,7 @@ axiosInstance.interceptors.response.use(
           {},
           { withCredentials: true },
         )
-        localStorage.setItem('accessToken', data.accessToken) 
+        localStorage.setItem('token', data.token) 
         processQueue(null)
         return axiosInstance(originalRequest)
       } catch (refreshError) {
